@@ -1,0 +1,13 @@
+{
+    "name": "unitedover/wpnotif",
+    "type": "project",
+    "authors": [
+        {
+            "name": "UnitedOver",
+            "email": "support@unitedover.com"
+        }
+    ],
+    "require": {
+        "giggsey/libphonenumber-for-php": "^8.12"
+    }
+}
