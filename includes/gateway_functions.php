@@ -71,7 +71,6 @@ class WPNotif_Gateway
 
     public function sms_gateway()
     {
-
         $src = admin_url('admin-ajax.php');
 
         $data = array('nonce' => wp_create_nonce('wpnotif_qrcode'), 'action' => 'wpnotif_get_qrcode');
@@ -98,7 +97,7 @@ class WPNotif_Gateway
             'custom_gateway' => array(
                 'value' => 900,
                 'group' => esc_attr__('GO SMS'),
-                'label' => esc_attr__('Custom'),
+                'label' => esc_attr__('GO SMS'),
                 'inputs' => array(
                     __('SMS Gateway URL') => array('text' => true, 'name' => 'gateway_url', 'placeholder' => 'https://www.example.com/send'),
                     __('HTTP Header') => array('textarea' => true, 'name' => 'http_header', 'rows' => 3, 'optional' => 1, 'desc' => esc_attr__('Headers separated by ","')),

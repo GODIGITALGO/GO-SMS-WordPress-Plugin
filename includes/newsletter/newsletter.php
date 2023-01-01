@@ -121,11 +121,7 @@ final class WPNotif_NewsLetter
                             php <?php echo WPNotif::get_directory_path().'wpnotif-cron.php';?>
                         </p>
                         <p class="wpnotif_desc wpnotif_cron_desc wpnotif_cron_desc_all">
-                        <?php
-                        $link = '<a target="_blank" href="https://help.unitedover.com/wpnotif/kb/setting-up-wpnotif-cron-method/">';
-                        $help = esc_attr__('Please read our article on %s Setting up WPNotif Cron Method %s to see which cron method will work best for your WPNotif newsletter settings. Click %shere%s','wpnotif');
-                        echo sprintf($help,$link,'</a>',$link,'</a>');
-                        ?>
+                       
                         </p>
                         <p class="wpnotif_desc wpnotif_cron_disabled" style="display:none;">
                         <?php esc_attr_e('Newsletters and Pending payment notifications will probably not work if you disable cron.','wpnotif');?>

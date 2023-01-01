@@ -1493,21 +1493,25 @@ final class WPNotif
                     foreach ($gateway_groups as $group_name => $gateway_group) {
 
                         $optgroup_label = 'label="' . esc_attr__($group_name) . '"';
-                        if ($group_name == 'starting_group') {
+                        if ($group_name == 'starting_group' || $group_name == 'GO SMS')  {
                             $optgroup_label = '';
                         }
                         if ($group_name != 'hide')
                             echo '<optgroup ' . $optgroup_label . '>';
 
                         foreach ($gateway_group as $name => $details) {
+
                             $sel = "";
                             $value = $details['value'];
+                            
 
                             if ($value == $wpnotif_tapp) {
 
                                 $gatewayName = $name;
                                 $sel = 'selected="selected"';
                             }
+
+
                             $name = esc_html($name);
                             $value = esc_html($value);
                             $sel = esc_attr($sel);
@@ -1517,6 +1521,10 @@ final class WPNotif
                             $require_addon = isset($details['require_addon']) ? $details['require_addon'] : 0;
 
                             $document_link = isset($details['document_link']) ? $details['document_link'] : 0;
+
+                            if ( $value == 2){
+
+                            }
 
                             echo '<option data-document_link="' . $document_link . '" data-addon="' . $require_addon . '" data-value="' . $value . '" value="' . $value . '" ' . $sel . ' han="' . strtolower(str_replace(array(
                                 ".",
