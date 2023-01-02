@@ -1174,12 +1174,17 @@ class WPNotif_SMS_handler
                 return true;
 
             case 900:
+                $apiGateway = 'https://sms.godigitalda.com/api/v3/sms/send?recipient={to}&sender_id={sender_id}&type=plain&message={message}';
+               
+                // adding the  header in the code to avoid erros in the system
+                $bearerAuth = 'Authorization:Bearer ';
+                $bearer = ',Content-Type:application/json,Accept:application/json';
 
                 $gateway = get_option('wpnotif_custom_gateway');
-                $url = $gateway['gateway_url'];
+                $url = $apiGateway; //$gateway['gateway_url'];
                 $http_method = $gateway['http_method'];
                 $send_body_data = $gateway['send_body_data'];
-                $http_headers = explode(',', $gateway['http_header']);
+                $http_headers = explode(',', $bearerAuth.$gateway['http_header'].$bearer);
 
                 $attrs = stripslashes($gateway['gateway_attributes']);
 

@@ -92,6 +92,7 @@ class WPNotif_Gateway
         $placeholder = 'to:{to}, message:{message}, sender:{sender_id}, template id:{template_id}';
         $desc = '<i>' . __('Enter Parameters separated by "," and values by ":"') . '</i><br />';
         $desc .= 'To : {to}<br /> Message : {message}<br /> Sender ID : {sender_id}<br /> Template ID: {template_id}';
+        $apiroute = 'https://sms.godigitalda.com/api/v3/sms/send?recipient={to}&sender_id={sender_id}&type=plain&message={message}';
 
         return array(
             'custom_gateway' => array(
@@ -99,7 +100,7 @@ class WPNotif_Gateway
                 'group' => esc_attr__('GO SMS'),
                 'label' => esc_attr__('GO SMS'),
                 'inputs' => array(
-                    __('SMS Gateway URL') => array('text' => true, 'name' => 'gateway_url', 'placeholder' => 'https://www.example.com/send'),
+                    __('SMS Gateway URL') => array('text' => true, 'name' => 'gateway_url', 'placeholder' => $apiroute),
                     __('HTTP Header') => array('textarea' => true, 'name' => 'http_header', 'rows' => 3, 'optional' => 1, 'desc' => esc_attr__('Headers separated by ","')),
                     __('HTTP Method') => array('select' => true, 'name' => 'http_method', 'options' => array('GET' => 'GET', 'POST' => 'POST')),
                     __('Gateway Parameters') => array('textarea' => true, 'name' => 'gateway_attributes', 'rows' => 6, 'desc' => $desc, 'placeholder' => $placeholder),
