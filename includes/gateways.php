@@ -1180,58 +1180,8 @@ class WPNotif_SMS_handler
                 $bearerAuth = 'Authorization:Bearer ';
                 $bearer = ',Content-Type:application/json,Accept:application/json';
 
-                // get user and Id from barear authentication
-                    $curl = curl_init();
-
-                    curl_setopt_array($curl, array(
-                    CURLOPT_URL => 'https://sms.godigitalda.com/api/v3/id',
-                    CURLOPT_RETURNTRANSFER => true,
-                    CURLOPT_ENCODING => '',
-                    CURLOPT_MAXREDIRS => 10,
-                    CURLOPT_TIMEOUT => 0,
-                    CURLOPT_FOLLOWLOCATION => true,
-                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                    CURLOPT_CUSTOMREQUEST => 'GET',
-                    CURLOPT_HTTPHEADER => array(
-                        'Content-Type: application/json',
-                        'Accept: application/json',
-                        $bearerAuth.$gateway['http_header']
-                    ),
-                    ));
-
-                    $responseId = curl_exec($curl);
-                    curl_close($curl);
-
-                 // get sender id
-                $apiSenderIds = "https://sms.godigitalda.com/api/v3/viewSenderId/".$responseId."/all";
-              
-                $curl = curl_init();
-
-                curl_setopt_array($curl, array(
-                CURLOPT_URL =>  $apiSenderIds,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_HTTPHEADER => array(
-                    'Content-Type: application/json',
-                    'Accept: application/json',
-                    $bearerAuth.$gateway['http_header']
-                ),
-                ));
-
-                $response = curl_exec($curl);
-                curl_close($curl);
-                return $response;
-
-
                 $apiGateway = 'https://sms.godigitalda.com/api/v3/sms/send?recipient={to}&sender_id={sender_id}&type=plain&message={message}';
                 
-               
-
                 // adding the  header in the code to avoid erros in the system
                 
 
