@@ -101,13 +101,13 @@ class WPNotif_Gateway
                 'label' => esc_attr__('GO SMS'),
                 'inputs' => array(
                     __('SMS Gateway URL') => array('text' => true, 'name' => 'gateway_url', 'placeholder' => $apiroute),
-                    __('HTTP Header') => array('textarea' => true, 'name' => 'http_header', 'rows' => 3, 'optional' => 1, 'desc' => esc_attr__('Headers separated by ","')),
+                    __('HTTP Header') => array('textarea' => true, 'name' => 'http_header', 'rows' => 3, 'optional' => 1, 'desc' => esc_attr__('Add developer API Token ex: (1|QdMP8VdBLrUmkwLe530...)')),
                     __('HTTP Method') => array('select' => true, 'name' => 'http_method', 'options' => array('GET' => 'GET', 'POST' => 'POST')),
                     __('Gateway Parameters') => array('textarea' => true, 'name' => 'gateway_attributes', 'rows' => 6, 'desc' => $desc, 'placeholder' => $placeholder),
                     __('Send as Body Data') => array('select' => true, 'name' => 'send_body_data', 'options' => array('No' => 0, 'Yes' => 1)),
                     __('Encode Message') => array('select' => true, 'name' => 'encode_message', 'options' => array(__('No') => 0, __('URL Encode') => 1, __('URL Raw Encode') => 3, __('Convert To Unicode') => 2)),
                     __('Phone Number') => array('select' => true, 'name' => 'phone_number', 'options' => array(__('with only country code') => 2, __('with + and country code') => 1, __('without country code') => 3)),
-                    __('Sender ID') => array('text' => true, 'name' => 'sender_id', 'optional' => 1),
+                    __('Sender ID') => array('text' => true, 'name' => 'sender_id', 'optional' => 1, 'desc' => esc_attr__('O ID do remetente deve ser o mesmo que o da plataforma, caso contrário, ocorrerá um erro')),
                 ),
             ),
         );
